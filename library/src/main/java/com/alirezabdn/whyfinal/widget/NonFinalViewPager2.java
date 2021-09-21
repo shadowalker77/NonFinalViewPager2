@@ -559,7 +559,7 @@ public class NonFinalViewPager2 extends ViewGroup {
         return mLayoutManager.getOrientation();
     }
 
-    boolean isRtl() {
+    public boolean isRtl() {
         return mLayoutManager.getLayoutDirection() == ViewCompat.LAYOUT_DIRECTION_RTL;
     }
 
