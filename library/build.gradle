@@ -7,10 +7,10 @@ android {
     compileSdk 30
 
     defaultConfig {
-        minSdk 21
+        minSdk 14
         targetSdk 30
         versionCode 1
-        versionName "0.1.۱"
+        versionName "0.1.2"
         consumerProguardFiles "consumer-rules.pro"
     }
 
