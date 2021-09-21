@@ -1,6 +1,6 @@
-package com.alirezabdn.library;
+package com.alirezabdn.whyfinal.widget;
 
-import static com.alirezabdn.library.NonFinalViewPager2.ORIENTATION_HORIZONTAL;
+import static com.alirezabdn.whyfinal.widget.NonFinalViewPager2.ORIENTATION_HORIZONTAL;
 
 import android.os.SystemClock;
 import android.view.MotionEvent;

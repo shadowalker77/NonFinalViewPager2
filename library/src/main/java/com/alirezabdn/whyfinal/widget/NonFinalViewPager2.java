@@ -1,4 +1,4 @@
-package com.alirezabdn.library;
+package com.alirezabdn.whyfinal.widget;
 
 import static androidx.annotation.RestrictTo.Scope.LIBRARY_GROUP_PREFIX;
 import static androidx.recyclerview.widget.RecyclerView.NO_POSITION;
@@ -39,6 +39,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.RecyclerView.Adapter;
 import androidx.recyclerview.widget.RecyclerView.ItemDecoration;
 import androidx.viewpager2.adapter.StatefulAdapter;
+
+import com.alirezabdn.whyfinal.R;
 
 import java.lang.annotation.Retention;
 

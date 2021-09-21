@@ -1,9 +1,9 @@
-package com.alirezabdn.library;
+package com.alirezabdn.whyfinal.widget;
 
-import static com.alirezabdn.library.NonFinalViewPager2.ORIENTATION_HORIZONTAL;
-import static com.alirezabdn.library.NonFinalViewPager2.SCROLL_STATE_DRAGGING;
-import static com.alirezabdn.library.NonFinalViewPager2.SCROLL_STATE_IDLE;
-import static com.alirezabdn.library.NonFinalViewPager2.SCROLL_STATE_SETTLING;
+import static com.alirezabdn.whyfinal.widget.NonFinalViewPager2.ORIENTATION_HORIZONTAL;
+import static com.alirezabdn.whyfinal.widget.NonFinalViewPager2.SCROLL_STATE_DRAGGING;
+import static com.alirezabdn.whyfinal.widget.NonFinalViewPager2.SCROLL_STATE_IDLE;
+import static com.alirezabdn.whyfinal.widget.NonFinalViewPager2.SCROLL_STATE_SETTLING;
 
 import static java.lang.annotation.RetentionPolicy.SOURCE;
 

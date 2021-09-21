@@ -1,8 +1,8 @@
-package com.alirezabdn.library;
+package com.alirezabdn.whyfinal.widget;
 
 import static android.view.ViewGroup.LayoutParams.MATCH_PARENT;
 
-import static com.alirezabdn.library.NonFinalViewPager2.ORIENTATION_HORIZONTAL;
+import static com.alirezabdn.whyfinal.widget.NonFinalViewPager2.ORIENTATION_HORIZONTAL;
 
 import android.animation.LayoutTransition;
 import android.annotation.SuppressLint;
