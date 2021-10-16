@@ -2,7 +2,6 @@ package com.alirezabdn.whyfinal.widget;
 
 import static androidx.annotation.RestrictTo.Scope.LIBRARY_GROUP_PREFIX;
 import static androidx.recyclerview.widget.RecyclerView.NO_POSITION;
-
 import static java.lang.annotation.RetentionPolicy.SOURCE;
 
 import android.annotation.SuppressLint;
@@ -52,7 +51,9 @@ import java.lang.annotation.Retention;
  * @see androidx.viewpager.widget.ViewPager
  */
 public class NonFinalViewPager2 extends ViewGroup {
-    /** @hide */
+    /**
+     * @hide
+     */
     @RestrictTo(LIBRARY_GROUP_PREFIX)
     @Retention(SOURCE)
     @IntDef({ORIENTATION_HORIZONTAL, ORIENTATION_VERTICAL})
@@ -62,14 +63,18 @@ public class NonFinalViewPager2 extends ViewGroup {
     public static final int ORIENTATION_HORIZONTAL = RecyclerView.HORIZONTAL;
     public static final int ORIENTATION_VERTICAL = RecyclerView.VERTICAL;
 
-    /** @hide */
+    /**
+     * @hide
+     */
     @RestrictTo(LIBRARY_GROUP_PREFIX)
     @Retention(SOURCE)
     @IntDef({SCROLL_STATE_IDLE, SCROLL_STATE_DRAGGING, SCROLL_STATE_SETTLING})
     public @interface ScrollState {
     }
 
-    /** @hide */
+    /**
+     * @hide
+     */
     @SuppressWarnings("WeakerAccess")
     @RestrictTo(LIBRARY_GROUP_PREFIX)
     @Retention(SOURCE)
@@ -98,11 +103,14 @@ public class NonFinalViewPager2 extends ViewGroup {
     /**
      * Value to indicate that the default caching mechanism of RecyclerView should be used instead
      * of explicitly prefetch and retain pages to either side of the current page.
+     *
      * @see #setOffscreenPageLimit(int)
      */
     public static final int OFFSCREEN_PAGE_LIMIT_DEFAULT = -1;
 
-    /** Feature flag while stabilizing enhanced a11y */
+    /**
+     * Feature flag while stabilizing enhanced a11y
+     */
     static boolean sFeatureEnhancedA11yEnabled = true;
 
     // reused in layout(...)
@@ -135,7 +143,8 @@ public class NonFinalViewPager2 extends ViewGroup {
     private RecyclerView.ItemAnimator mSavedItemAnimator = null;
     private boolean mSavedItemAnimatorPresent = false;
     private boolean mUserInputEnabled = true;
-    private @OffscreenPageLimit int mOffscreenPageLimit = OFFSCREEN_PAGE_LIMIT_DEFAULT;
+    private @OffscreenPageLimit
+    int mOffscreenPageLimit = OFFSCREEN_PAGE_LIMIT_DEFAULT;
     AccessibilityProvider mAccessibilityProvider; // to avoid creation of a synthetic accessor
 
     public NonFinalViewPager2(@NonNull Context context) {
@@ -241,7 +250,7 @@ public class NonFinalViewPager2 extends ViewGroup {
 
     /**
      * A lot of places in code rely on an assumption that the page fills the whole ViewPager2.
-     *
+     * <p>
      * TODO(b/70666617) Allow page width different than width/height 100%/100%
      */
     private RecyclerView.OnChildAttachStateChangeListener enforceChildFillListener() {
@@ -463,7 +472,8 @@ public class NonFinalViewPager2 extends ViewGroup {
     }
 
     @SuppressWarnings("rawtypes")
-    public @Nullable Adapter getAdapter() {
+    public @Nullable
+    Adapter getAdapter() {
         return mRecyclerView.getAdapter();
     }
 
@@ -517,7 +527,9 @@ public class NonFinalViewPager2 extends ViewGroup {
         }
     }
 
-    /** Updates {@link #mCurrentItem} based on what is currently visible in the viewport. */
+    /**
+     * Updates {@link #mCurrentItem} based on what is currently visible in the viewport.
+     */
     void updateCurrentItem() {
         if (mPagerSnapHelper == null) {
             throw new IllegalStateException("Design assumption violated.");
@@ -555,7 +567,8 @@ public class NonFinalViewPager2 extends ViewGroup {
     }
 
     @SuppressLint("WrongConstant")
-    public @Orientation int getOrientation() {
+    public @Orientation
+    int getOrientation() {
         return mLayoutManager.getOrientation();
     }
 
@@ -568,7 +581,7 @@ public class NonFinalViewPager2 extends ViewGroup {
      * layout with its current adapter there will be a smooth animated transition between
      * the current item and the specified item. Silently ignored if the adapter is not set or
      * empty. Clamps item to the bounds of the adapter.
-     *
+     * <p>
      * TODO(b/123069219): verify first layout behavior
      *
      * @param item Item index to select
@@ -582,7 +595,7 @@ public class NonFinalViewPager2 extends ViewGroup {
      * animation from the current item to the new item. Silently ignored if the adapter is not set
      * or empty. Clamps item to the bounds of the adapter.
      *
-     * @param item Item index to select
+     * @param item         Item index to select
      * @param smoothScroll True to smoothly scroll to the new item, false to transition immediately
      */
     public void setCurrentItem(int item, boolean smoothScroll) {
@@ -666,7 +679,7 @@ public class NonFinalViewPager2 extends ViewGroup {
      * {@link #SCROLL_STATE_IDLE}, {@link #SCROLL_STATE_DRAGGING} or {@link #SCROLL_STATE_SETTLING}.
      *
      * @return The scroll state that was last dispatched to {@link
-     *         OnPageChangeCallback#onPageScrollStateChanged(int)}
+     * OnPageChangeCallback#onPageScrollStateChanged(int)}
      */
     @ScrollState
     public int getScrollState() {
@@ -689,8 +702,7 @@ public class NonFinalViewPager2 extends ViewGroup {
      * drag is already in progress, this method will return {@code false}.
      *
      * @return {@code true} if the fake drag began successfully, {@code false} if it could not be
-     *         started
-     *
+     * started
      * @see #fakeDragBy(float)
      * @see #endFakeDrag()
      * @see #isFakeDragging()
@@ -711,8 +723,7 @@ public class NonFinalViewPager2 extends ViewGroup {
      *
      * @param offsetPxFloat Offset in pixels to drag by
      * @return {@code true} if the fake drag was executed. If {@code false} is returned, it means
-     *         there was no fake drag to end.
-     *
+     * there was no fake drag to end.
      * @see #beginFakeDrag()
      * @see #endFakeDrag()
      * @see #isFakeDragging()
@@ -725,8 +736,7 @@ public class NonFinalViewPager2 extends ViewGroup {
      * End a fake drag of the pager.
      *
      * @return {@code true} if the fake drag was ended. If {@code false} is returned, it means there
-     *         was no fake drag to end.
-     *
+     * was no fake drag to end.
      * @see #beginFakeDrag()
      * @see #fakeDragBy(float)
      * @see #isFakeDragging()
@@ -771,7 +781,7 @@ public class NonFinalViewPager2 extends ViewGroup {
      * boolean) setCurrentItem} still work. By default, user initiated scrolling is enabled.
      *
      * @param enabled {@code true} to allow user initiated scrolling, {@code false} to block user
-     *        initiated scrolling
+     *                initiated scrolling
      * @see #isUserInputEnabled()
      */
     public void setUserInputEnabled(boolean enabled) {
@@ -810,7 +820,7 @@ public class NonFinalViewPager2 extends ViewGroup {
      * it is set to {@code OFFSCREEN_PAGE_LIMIT_DEFAULT}.</p>
      *
      * @param limit How many pages will be kept offscreen on either side. Valid values are all
-     *        values {@code >= 1} and {@link #OFFSCREEN_PAGE_LIMIT_DEFAULT}
+     *              values {@code >= 1} and {@link #OFFSCREEN_PAGE_LIMIT_DEFAULT}
      * @throws IllegalArgumentException If the given limit is invalid
      * @see #getOffscreenPageLimit()
      */
@@ -878,7 +888,6 @@ public class NonFinalViewPager2 extends ViewGroup {
      * data-set change animations.
      *
      * @param transformer PageTransformer that will modify each page's animation properties
-     *
      * @see MarginPageTransformer
      * @see CompositePageTransformer
      */
@@ -1024,6 +1033,18 @@ public class NonFinalViewPager2 extends ViewGroup {
                                                      boolean focusedChildVisible) {
             return false; // users should use setCurrentItem instead
         }
+
+        @Override
+        protected boolean isLayoutRTL() {
+            if (isLayoutRTLOverride() != null)
+                return isLayoutRTLOverride();
+            else
+                return super.isLayoutRTL();
+        }
+    }
+
+    public Boolean isLayoutRTLOverride() {
+        return null;
     }
 
     private class PagerSnapHelperImpl extends PagerSnapHelper {
@@ -1064,9 +1085,9 @@ public class NonFinalViewPager2 extends ViewGroup {
          * This method will be invoked when the current page is scrolled, either as part
          * of a programmatically initiated smooth scroll or a user initiated touch scroll.
          *
-         * @param position Position index of the first page currently being displayed.
-         *                 Page position+1 will be visible if positionOffset is nonzero.
-         * @param positionOffset Value from [0, 1) indicating the offset from the page at position.
+         * @param position             Position index of the first page currently being displayed.
+         *                             Page position+1 will be visible if positionOffset is nonzero.
+         * @param positionOffset       Value from [0, 1) indicating the offset from the page at position.
          * @param positionOffsetPixels Value in pixels indicating the offset from position.
          */
         public void onPageScrolled(int position, float positionOffset,
@@ -1102,13 +1123,12 @@ public class NonFinalViewPager2 extends ViewGroup {
         /**
          * Apply a property transformation to the given page.
          *
-         * @param page Apply the transformation to this page
+         * @param page     Apply the transformation to this page
          * @param position Position of page relative to the current front-and-center
          *                 position of the pager. 0 is front and center. 1 is one full
          *                 page position to the right, and -2 is two pages to the left.
          *                 Minimum / maximum observed values depend on how many pages we keep
          *                 attached, which depends on offscreenPageLimit.
-         *
          * @see #setOffscreenPageLimit(int)
          */
         void transformPage(@NonNull View page, float position);
@@ -1463,14 +1483,10 @@ public class NonFinalViewPager2 extends ViewGroup {
         void updatePageAccessibilityActions() {
             NonFinalViewPager2 viewPager = NonFinalViewPager2.this;
 
-            @SuppressLint("InlinedApi")
-            final int actionIdPageLeft = android.R.id.accessibilityActionPageLeft;
-            @SuppressLint("InlinedApi")
-            final int actionIdPageRight = android.R.id.accessibilityActionPageRight;
-            @SuppressLint("InlinedApi")
-            final int actionIdPageUp = android.R.id.accessibilityActionPageUp;
-            @SuppressLint("InlinedApi")
-            final int actionIdPageDown = android.R.id.accessibilityActionPageDown;
+            @SuppressLint("InlinedApi") final int actionIdPageLeft = android.R.id.accessibilityActionPageLeft;
+            @SuppressLint("InlinedApi") final int actionIdPageRight = android.R.id.accessibilityActionPageRight;
+            @SuppressLint("InlinedApi") final int actionIdPageUp = android.R.id.accessibilityActionPageUp;
+            @SuppressLint("InlinedApi") final int actionIdPageDown = android.R.id.accessibilityActionPageDown;
 
             ViewCompat.removeAccessibilityAction(viewPager, actionIdPageLeft);
             ViewCompat.removeAccessibilityAction(viewPager, actionIdPageRight);
