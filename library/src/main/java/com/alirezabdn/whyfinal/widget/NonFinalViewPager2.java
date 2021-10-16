@@ -1041,9 +1041,21 @@ public class NonFinalViewPager2 extends ViewGroup {
             else
                 return super.isLayoutRTL();
         }
+
+        @Override
+        public int getLayoutDirection() {
+            if (getLayoutDirectionOverride() != null)
+                return getLayoutDirectionOverride();
+            else
+                return super.getLayoutDirection();
+        }
     }
 
     public Boolean isLayoutRTLOverride() {
+        return null;
+    }
+
+    public Integer getLayoutDirectionOverride() {
         return null;
     }
 
