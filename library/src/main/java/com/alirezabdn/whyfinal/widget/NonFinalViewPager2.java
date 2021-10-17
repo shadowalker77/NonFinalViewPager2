@@ -990,6 +990,19 @@ public class NonFinalViewPager2 extends ViewGroup {
         public boolean onInterceptTouchEvent(MotionEvent ev) {
             return isUserInputEnabled() && super.onInterceptTouchEvent(ev);
         }
+
+        @SuppressLint("WrongConstant")
+        @Override
+        public int getLayoutDirection() {
+            if (getLayoutDirectionOverrideForRv() != null)
+                return getLayoutDirectionOverrideForRv();
+            else
+                return super.getLayoutDirection();
+        }
+    }
+
+    public Integer getLayoutDirectionOverrideForRv() {
+        return null;
     }
 
     private class LinearLayoutManagerImpl extends LinearLayoutManager {
